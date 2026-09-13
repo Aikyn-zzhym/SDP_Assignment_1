@@ -132,3 +132,37 @@ class OfficeBuilder implements KeyboardBuilder {
     }
 }
 
+class KeyboardDirector {
+    public Keyboard makeGamingRig(KeyboardBuilder builder) {
+        return builder.setLayout(SizeLayout.TKL)
+                .setSwitchType(SwitchType.RED)
+                .setKeycaps(KeycapMaterial.PBT)
+                .setRGB(true)
+                .setWireless(false)
+                .build();
+    }
+
+    public Keyboard makeStandardOffice(KeyboardBuilder builder) {
+        return builder.setLayout(SizeLayout.FULL_SIZE)
+                .setSwitchType(SwitchType.MEMBRANE)
+                .setKeycaps(KeycapMaterial.ABS)
+                .setRGB(false)
+                .setWireless(true)
+                .build();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        KeyboardDirector director = new KeyboardDirector();
+        KeyboardBuilder mechBuilder = new MechanicalBuilder();
+        Keyboard gamingKeyboard = director.makeGamingRig(mechBuilder);
+        System.out.println("Gaming PC Setup: " + gamingKeyboard);
+        KeyboardBuilder officeBuilder = new OfficeBuilder();
+        Keyboard customOffice = officeBuilder.setLayout(SizeLayout.SIXTY_PERCENT)
+                .setWireless(true)
+                .build();
+
+        System.out.println("Custom Office Setup: " + customOffice);
+    }
+}
