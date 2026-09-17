@@ -126,7 +126,7 @@ class OfficeBuilder implements KeyboardBuilder {
     @Override
     public Keyboard build() {
         if (hasRGB) {
-            System.out.println("Warning: Office keyboards usually don't have RGB.");
+            System.out.println("Office keyboards don't have RGB");
         }
         return new Keyboard(switchType, keycaps, layout, hasRGB, isWireless);
     }
