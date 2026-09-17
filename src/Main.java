@@ -49,7 +49,7 @@ class MechanicalBuilder implements KeyboardBuilder {
     @Override
     public KeyboardBuilder setSwitchType(SwitchType type) {
         this.switchType = type;
-        return this; // Returning 'this' is required for the fluent API
+        return this;
     }
 
     @Override
