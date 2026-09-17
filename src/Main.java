@@ -77,13 +77,20 @@ class MechanicalBuilder implements KeyboardBuilder {
     }
 
     @Override
-    public Keyboard build() {
-        
-        if (switchType == SwitchType.MEMBRANE) {
-            throw new IllegalArgumentException("Mechanical keyboards cannot use membrane switches!");
-        }
-        return new Keyboard(switchType, keycaps, layout, hasRGB, isWireless);
+public Keyboard build() {
+    if (switchType == null || keycaps == null || layout == null) {
+        throw new IllegalStateException(
+                "Switch type, keycaps and layout must be set"
+        );
     }
+
+    if (switchType == SwitchType.MEMBRANE) {
+        throw new IllegalArgumentException(
+                "Mechanical keyboards cannot use membrane switches"
+        );
+    }
+
+    return new Keyboard(switchType, keycaps, layout, hasRGB, isWireless);
 }
 
 class OfficeBuilder implements KeyboardBuilder {
