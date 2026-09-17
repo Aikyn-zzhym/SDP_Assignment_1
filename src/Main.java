@@ -78,7 +78,7 @@ class MechanicalBuilder implements KeyboardBuilder {
 
     @Override
     public Keyboard build() {
-        // Validation check
+        
         if (switchType == SwitchType.MEMBRANE) {
             throw new IllegalArgumentException("Mechanical keyboards cannot use membrane switches!");
         }
@@ -87,7 +87,7 @@ class MechanicalBuilder implements KeyboardBuilder {
 }
 
 class OfficeBuilder implements KeyboardBuilder {
-    private SwitchType switchType = SwitchType.MEMBRANE; // Default value
+    private SwitchType switchType = SwitchType.MEMBRANE;
     private KeycapMaterial keycaps = KeycapMaterial.ABS;
     private SizeLayout layout = SizeLayout.FULL_SIZE;
     private boolean hasRGB = false;
